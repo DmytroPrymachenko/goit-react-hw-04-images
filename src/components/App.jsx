@@ -45,13 +45,16 @@ export const App = () => {
   // Новва частина
 
   useEffect(() => {
-    fetchPhotos(search, page);
+    if (search !== '') {
+      fetchPhotos(search, page);
+    }
   }, [search, page]);
 
   const openModal = url => {
     setUrl(url);
     setModal(true);
-    window.addEventListener('keydown', this.onWindowCloseModal);
+
+    window.addEventListener('keydown', onWindowCloseModal);
   };
 
   const closeModal = () => {
@@ -60,7 +63,7 @@ export const App = () => {
   const onWindowCloseModal = el => {
     if (el.code === 'Escape') {
       closeModal();
-      window.removeEventListener('keydown', this.onWindowCloseModal);
+      window.removeEventListener('keydown', onWindowCloseModal);
     }
   };
 
