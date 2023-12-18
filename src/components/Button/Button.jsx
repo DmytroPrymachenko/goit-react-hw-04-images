@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ButtonNext } from './ButtonStaled';
 
-export default class Button extends Component {
-  render() {
-    return <ButtonNext onClick={this.props.getPage}>Load more</ButtonNext>;
-  }
-}
+export const Button = ({ getPage }) => {
+  return <ButtonNext onClick={getPage}>Load more</ButtonNext>;
+};

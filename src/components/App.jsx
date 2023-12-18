@@ -3,7 +3,7 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { useEffect, useState } from 'react';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
-import Button from './Button/Button';
+import { Button } from './Button/Button';
 import { Modal } from './Modal/Modal';
 import Loader from './Loader/Loader';
 import { DivApp } from './AppStaled';
@@ -23,9 +23,7 @@ export const App = () => {
       if (page === 1) {
         setPhotos(hits);
       } else {
-        setPhotos(prev => ({
-          photos: [...prev, ...hits],
-        }));
+        setPhotos(prev => [...prev, ...hits]);
       }
     } catch (error) {
       console.error('Error fetching photos:', error);
@@ -40,7 +38,7 @@ export const App = () => {
   };
 
   const getPage = () => {
-    setPage(prev => ({ page: prev + 1 }));
+    setPage(prev => prev + 1);
   };
   // Новва частина
 
